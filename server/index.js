@@ -56,6 +56,7 @@ app.get('/ping/', function(req, res) {
 });
 
 app.get('/', function(req, res) {
+    
     render(req, res, {
         view: 'index',
         title: 'Main page',
@@ -65,7 +66,8 @@ app.get('/', function(req, res) {
                 url: 'https://site.com',
                 siteName: 'Site name'
             }
-        }
+        },
+        data: require('./../store/all.json')
     })
 });
 

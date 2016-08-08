@@ -2,41 +2,33 @@ block('contact')(
 
     content()(function() {
 
-        this.ctx.contact = {
-            group: 'группа',
-            name: 'имя',
-            phone: '123 - 123',
-            address: 'мой адрес',
-            email: 'mymail@mail.ru'
-        };
-
         return [
             {
                 elem: 'photo',
-                content: this.ctx.contact.photo || 'http://tenorok.github.io/shri-bem-practice/store/mrx.jpeg'
+                content: this.ctx.photo || 'http://tenorok.github.io/shri-bem-practice/store/mrx.jpeg'
             },
             {
                 elem: 'group',
-                content: this.ctx.contact.group || ''
+                content: this.ctx.group || ''
             },
             {
                 elem: 'info',
                 content: [
                     {
                         elem: 'name',
-                        content: this.ctx.contact.name || 'MrX'
+                        content: this.ctx.name || 'MrX'
                     },
                     {
                         elem: 'phone',
-                        content: this.ctx.contact.phone || ''
+                        content: this.ctx.phone || ''
                     },
                     {
                         elem: 'address',
-                        content: this.ctx.contact.address || ''
+                        content: this.ctx.address || ''
                     },
                     {
                         elem: 'email',
-                        content: this.ctx.contact.email || ''
+                        content: this.ctx.email || ''
                     }
                 ]
             }
