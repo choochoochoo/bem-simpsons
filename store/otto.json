@@ -1,0 +1,20 @@
+[
+    {
+        "photo": "http://tenorok.github.io/shri-bem-practice/store/otto.png",
+        "group": "школа",
+        "name": "Отто Манн",
+        "phone": "+7 185 926-23-06",
+        "address": "Шестая авеню, 67",
+        "email": "otto@yandex.ru",
+        "details": [
+            { "День рождения": "16 июня 1990" },
+            { "Место работы": "Школа" },
+            { "Должность": "Водитель автобуса" }
+        ],
+        "social": {
+            "facebook": "https://www.facebook.com/pages/otto-mann/199644113399563",
+            "twitter": "https://twitter.com/OttoBusdriver",
+            "vkontakte": "https://twitter.com/OttoBusdriver"
+        }
+    }
+]
