@@ -8,11 +8,11 @@ modules.define('i-bem__dom', function (provide, DOM) {
 
         getDefaultParams: function () {
             return {
-                slideDuration: 200
+                // slideDuration: 200
             };
         },
 
-        /**
+        /**0
          * Скрыть/показать детальные данные по контакту
          * @returns {this}
          */
