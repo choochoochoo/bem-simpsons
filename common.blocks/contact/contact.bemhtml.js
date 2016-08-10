@@ -1,8 +1,10 @@
 block('contact')(
 
+    js()(true),
+
     content()(function () {
 
-        this.ctx.details = (this.ctx.details || []).map(function (detail) {
+        this.ctx.detailsBlock = (this.ctx.details || []).map(function (detail) {
             var key = Object.keys(detail)[0];
             return {
                 elem: 'detail',
@@ -44,7 +46,7 @@ block('contact')(
                         content: [
                             {
                                 elem: 'details',
-                                content: this.ctx.details
+                                content: this.ctx.detailsBlock
                             }
                         ]
                     }
