@@ -43,7 +43,7 @@ modules.define('i-bem__dom', function(provide, DOM) {
          * @param {Object} data Объект данных по событию
          */
         addContact : function(e, data) {
-            this.elem('list').append(data.html);
+            this._contacts.append(data.html);
         },
 
         /**

@@ -1,9 +1,9 @@
 ([{
     tech: 'js',
-    shouldDeps: {
-        block: 'i-bem',
-        tech: 'bemhtml'
-    }
+    mustDeps: {
+        block: 'contact',
+        tech: 'bemhtml',
+    },
 },
 {
     shouldDeps: [

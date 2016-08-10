@@ -19,8 +19,10 @@ modules.define('i-bem__dom', ['jquery', 'BEMHTML'], function (provide, $, BEMHTM
 
                         contact.block = 'contact';
 
+                        var html = BEMHTML.apply(contact);
+
                         that.emit('add', {
-                            html: BEMHTML.apply(contact)
+                            html: html
                         });
                     });
                 });
