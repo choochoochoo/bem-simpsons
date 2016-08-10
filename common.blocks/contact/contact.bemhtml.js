@@ -1,6 +1,15 @@
 block('contact')(
 
-    content()(function() {
+    content()(function () {
+
+        this.ctx.details = (this.ctx.details || []).map(function (detail) {
+            var key = Object.keys(detail)[0];
+            return {
+                elem: 'detail',
+                field: key,
+                value: detail[key]
+            };
+        });
 
         return [
             {
@@ -29,6 +38,15 @@ block('contact')(
                     {
                         elem: 'email',
                         content: this.ctx.email || ''
+                    },
+                    {
+                        elem: 'more',
+                        content: [
+                            {
+                                elem: 'details',
+                                content: this.ctx.details
+                            }
+                        ]
                     }
                 ]
             }
