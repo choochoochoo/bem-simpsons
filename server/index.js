@@ -53,6 +53,12 @@ app.get('/ping/', function (req, res) {
     res.send('ok');
 });
 
+// var json = {
+//         '/': './store/all.json',
+//         '/otto': './store/otto.json',
+//         '/homer': './store/homer.json'
+//     },
+
 app.get('/', function (req, res) {
 
     render(req, res, {
@@ -67,6 +73,20 @@ app.get('/', function (req, res) {
         },
         data: require('./../store/all.json')
     });
+});
+
+app.get('/store/all.json', function (req, res) {
+
+    fs.readFile('./store/all.json', {encoding: 'utf-8'}, function (error, data) {
+        if (error) {
+            return new Error('API request error: ', error);
+        }
+
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.write(data);
+        res.end();
+    });
+
 });
 
 app.get('*', function (req, res) {

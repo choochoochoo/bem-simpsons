@@ -3,6 +3,7 @@
         { block: 'vow' }
     ],
     shouldDeps: [
-        'contact'
+        'contact',
+        'add-contact'
     ]
 })

@@ -34,7 +34,7 @@ modules.define('i-bem__dom', function(provide, DOM) {
          * Подписаться на событие добавления контакта
          */
         listenAddContact : function() {
-            //this.findBlockInside('add-contact').on('add', this.addContact.bind(this));
+            this.findBlockInside('add-contact').on('add', this.addContact.bind(this));
         },
 
         /**
