@@ -5,6 +5,6 @@ block('contacts').content()(function () {
             contact.block = 'contact';
             return contact;
         })
-    )
+    );
 
 });

@@ -1,14 +1,14 @@
-.contact__photo {
+.contact__photo
+{
     float: left;
 
     width: 100px;
     height: 100px;
     margin-right: 20px;
 
+    transition: height 0.2s;
     text-indent: -1000%;
 
     background-repeat: no-repeat;
     background-size: contain;
-
-    transition: height .2s;
 }
