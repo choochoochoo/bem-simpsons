@@ -13,7 +13,14 @@
                 'name',
                 'phone',
                 'email',
+                'more',
+                'details',
+                'detail',
+                'detail-field'
             ],
+            mods: {
+                details: ''
+            } 
         }
     ]
 }])
