@@ -1,26 +1,14 @@
-var path = require('path'),
-    config = require('./config'),
-    bundleName = 'index',
-    pathToBundle = path.resolve('desktop.bundles', bundleName),
-    BEMTREE = require(path.join(pathToBundle, bundleName + '.bemtree.js')).BEMTREE,
-    BEMHTML = require(path.join(pathToBundle, bundleName + '.bemhtml.js')).BEMHTML,
-
-    isDev = process.env.NODE_ENV === 'development',
-    useCache = !isDev,
-    cacheTTL = config.cacheTTL,
-    cache = {};
+var path = require('path');
+var bundleName = 'index';
+var pathToBundle = path.resolve('desktop.bundles', bundleName);
+var BEMTREE = require(path.join(pathToBundle, bundleName + '.bemtree.js')).BEMTREE;
+var BEMHTML = require(path.join(pathToBundle, bundleName + '.bemhtml.js')).BEMHTML;
+var isDev = process.env.NODE_ENV === 'development';
 
 function render(req, res, data, context) {
     var query = req.query;
-    //    user = req.user,
-    //    cacheKey = req.url + (context ? JSON.stringify(context) : '') + (user ? JSON.stringify(user) : ''),
-    //    cached = cache[cacheKey];
-    //
-    //if (useCache && cached && (new Date() - cached.timestamp < cacheTTL)) {
-    //    return res.send(cached.html);
-    //}
-    //
-    //if (isDev && query.json) return res.send('<pre>' + JSON.stringify(data, null, 4) + '</pre>');
+
+    if (isDev && query.json) return res.send('<pre>' + JSON.stringify(data, null, 4) + '</pre>');
 
     var bemtreeCtx = {
         block: 'root',
@@ -33,7 +21,7 @@ function render(req, res, data, context) {
 
     try {
         var bemjson = BEMTREE.apply(bemtreeCtx);
-    } catch(err) {
+    } catch (err) {
         console.error('BEMTREE error', err.stack);
         console.trace('server stack');
         return res.sendStatus(500);
@@ -43,24 +31,14 @@ function render(req, res, data, context) {
 
     try {
         var html = BEMHTML.apply(bemjson);
-    } catch(err) {
+    } catch (err) {
         console.error('BEMHTML error', err.stack);
         return res.sendStatus(500);
     }
 
-    //useCache && (cache[cacheKey] = {
-    //    timestamp: new Date(),
-    //    html: html
-    //});
-
     res.send(html);
 }
 
-function dropCache() {
-    cache = {};
-}
-
 module.exports = {
-    render: render,
-    dropCache: dropCache
+    render: render
 };

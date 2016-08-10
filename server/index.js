@@ -12,14 +12,12 @@ var fs = require('fs'),
     expressSession = require('express-session'),
     slashes = require('connect-slashes'),
     passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
 
     config = require('./config'),
     staticFolder = config.staticFolder,
 
     Render = require('./render'),
     render = Render.render,
-    dropCache = Render.dropCache,
 
     port = process.env.PORT || config.defaultPort,
     isSocket = isNaN(port),
