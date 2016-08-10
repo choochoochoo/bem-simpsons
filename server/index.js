@@ -41,22 +41,22 @@ app
     .use(passport.initialize())
     .use(passport.session())
     .use(slashes());
-    // TODO: csrf, gzip
+// TODO: csrf, gzip
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
     done(null, JSON.stringify(user));
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser(function (user, done) {
     done(null, JSON.parse(user));
 });
 
-app.get('/ping/', function(req, res) {
+app.get('/ping/', function (req, res) {
     res.send('ok');
 });
 
-app.get('/', function(req, res) {
-    
+app.get('/', function (req, res) {
+
     render(req, res, {
         view: 'index',
         title: 'Main page',
@@ -68,16 +68,16 @@ app.get('/', function(req, res) {
             }
         },
         data: require('./../store/all.json')
-    })
+    });
 });
 
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
     res.status(404);
     return render(req, res, { view: '404' });
 });
 
 if (isDev) {
-    app.get('/error/', function() {
+    app.get('/error/', function () {
         throw new Error('Uncaught exception from /error');
     });
 
@@ -86,7 +86,7 @@ if (isDev) {
 
 isSocket && fs.existsSync(port) && fs.unlinkSync(port);
 
-app.listen(port, function() {
+app.listen(port, function () {
     isSocket && fs.chmod(port, '0777');
     console.log('server is listening on', this.address().port);
 });

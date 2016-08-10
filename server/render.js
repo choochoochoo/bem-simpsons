@@ -11,7 +11,7 @@ var path = require('path'),
     cache = {};
 
 function render(req, res, data, context) {
-    //var query = req.query,
+    var query = req.query;
     //    user = req.user,
     //    cacheKey = req.url + (context ? JSON.stringify(context) : '') + (user ? JSON.stringify(user) : ''),
     //    cached = cache[cacheKey];
