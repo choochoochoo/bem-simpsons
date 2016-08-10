@@ -1,5 +1,6 @@
 ({
     shouldDeps: [
-        'contacts'
+        'contacts',
+        'add-contact'
     ]
 })
