@@ -3,8 +3,9 @@ block('contact')(
     js()(true),
 
     content()(function () {
+        var ctx = this.ctx;
 
-        this.ctx.detailsBlock = (this.ctx.details || []).map(function (detail) {
+        ctx.detailsBlock = (ctx.details || []).map(function (detail) {
             var key = Object.keys(detail)[0];
             return {
                 elem: 'detail',
@@ -16,37 +17,37 @@ block('contact')(
         return [
             {
                 elem: 'photo',
-                content: this.ctx.photo || 'http://tenorok.github.io/shri-bem-practice/store/mrx.jpeg'
+                content: ctx.photo || 'http://tenorok.github.io/shri-bem-practice/store/mrx.jpeg'
             },
             {
                 elem: 'group',
-                content: this.ctx.group || ''
+                content: ctx.group
             },
             {
                 elem: 'info',
                 content: [
                     {
                         elem: 'name',
-                        content: this.ctx.name || 'MrX'
+                        content: ctx.name || 'MrX'
                     },
                     {
                         elem: 'phone',
-                        content: this.ctx.phone || ''
+                        content: ctx.phone
                     },
                     {
                         elem: 'address',
-                        content: this.ctx.address || ''
+                        content: ctx.address
                     },
                     {
                         elem: 'email',
-                        content: this.ctx.email || ''
+                        content: ctx.email
                     },
                     {
                         elem: 'more',
                         content: [
                             {
                                 elem: 'details',
-                                content: this.ctx.detailsBlock
+                                content: ctx.detailsBlock
                             }
                         ]
                     }

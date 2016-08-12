@@ -1,37 +1,28 @@
-modules.define('i-bem__dom', ['jquery', 'BEMHTML'], function (provide, $, BEMHTML, DOM) {
+modules.define('add-contact', ['i-bem__dom', 'jquery', 'BEMHTML'], function(provide, BEMDOM, $, BEMHTML) {
 
-    /**
-    * @namespace
-    * @name Add-contact
-    */
-    DOM.decl('add-contact', /** @lends Add-contact.prototype */ {}, /** @lends Add-contact */ {
+provide(BEMDOM.decl(this.name, {}, {
+    live: function () {
+        this
+            .liveBindTo('button', 'click', function () {
 
-        live: function () {
+                var that = this;
 
-            this
-                .liveBindTo('button', 'click', function () {
+                $.ajax('/store/all.json').done(function (data) {
 
-                    var that = this;
+                    var contact = data[Math.floor(Math.random() * data.length)];
 
-                    $.ajax('/store/all.json').done(function (data) {
+                    contact.block = 'contact';
 
-                        var contact = data[Math.floor(Math.random() * data.length)];
+                    var html = BEMHTML.apply(contact);
 
-                        contact.block = 'contact';
-
-                        var html = BEMHTML.apply(contact);
-
-                        that.emit('add', {
-                            html: html
-                        });
+                    that.emit('add', {
+                        html: html
                     });
                 });
+            });
 
-            return false;
-        }
-
-    });
-
-    provide(DOM);
+        return false;
+    }
+}));
 
 });
