@@ -3,7 +3,7 @@ block('contact').elem('phone')(
         return {
             block: 'button',
             mix: { block: 'contact', elem: 'phone-button' },
-            content: this.ctx.content
+            content: applyNext()
         };
     })
 );

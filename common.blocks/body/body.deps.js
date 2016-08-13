@@ -1,6 +1,5 @@
 ({
     shouldDeps: [
-        'contacts',
-        'b1'
+        'contacts'
     ]
 })

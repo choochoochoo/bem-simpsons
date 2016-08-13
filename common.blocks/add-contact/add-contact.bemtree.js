@@ -7,7 +7,7 @@ block('add-contact')(
                 block: 'button',
                 mods: { size: 'l', type: 'add' }
             }],
-            content: this.ctx.content
+            content: applyNext()
         };
     })
 
